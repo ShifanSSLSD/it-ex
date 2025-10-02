@@ -1,0 +1,520 @@
+<!DOCTYPE html><html lang="en"><head>
+
+  <meta charset="UTF-8">
+
+  <title>E-Sports Arena | Year 12 Students SSLSD</title>
+
+  <style>
+
+    /* Reset */
+
+    * {
+
+      margin: 0;
+
+      padding: 0;
+
+      box-sizing: border-box;
+
+      font-family: Arial, sans-serif;
+
+    }
+
+
+
+    body {
+
+      background: #f8f8f8;
+
+      color: #111;
+
+    }
+
+
+
+    /* Header */
+
+    header {
+
+      background: #fff;
+
+      border-bottom: 1px solid #ddd;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding: 15px 40px;
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 1000;
+
+    }
+
+
+
+    header .logo {
+
+      display: flex;
+
+      align-items: center;
+
+    }
+
+
+
+    .logo img {
+
+      height: 40px;
+
+      margin-right: 10px;
+
+    }
+
+
+
+    header input[type="text"] {
+
+      width: 400px;
+
+      padding: 10px;
+
+      border: 1px solid #ddd;
+
+      border-radius: 20px;
+
+      outline: none;
+
+    }
+
+
+
+    .nav-icons {
+
+      display: flex;
+
+      gap: 15px;
+
+      font-size: 20px;
+
+    }
+
+
+
+    /* Nav bar (Kept for completeness, though unused in HTML) */
+
+    nav {
+
+      background: #fff;
+
+      border-bottom: 1px solid #ddd;
+
+    }
+
+
+
+    nav ul {
+
+      display: flex;
+
+      list-style: none;
+
+      justify-content: center;
+
+      gap: 25px;
+
+      padding: 10px 0;
+
+    }
+
+
+
+    nav ul li {
+
+      position: relative;
+
+    }
+
+
+
+    nav ul li a {
+
+      text-decoration: none;
+
+      color: #111;
+
+      font-weight: bold;
+
+      font-size: 14px;
+
+    }
+
+
+
+    nav ul li:hover ul {
+
+      display: block;
+
+    }
+
+
+
+    nav ul ul {
+
+      display: none;
+
+      position: absolute;
+
+      top: 30px;
+
+      left: 0;
+
+      background: #fff;
+
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+
+      list-style: none;
+
+      padding: 10px 0;
+
+    }
+
+
+
+    nav ul ul li {
+
+      padding: 8px 20px;
+
+    }
+
+
+
+    nav ul ul li a {
+
+      font-weight: normal;
+
+      color: #333;
+
+    }
+
+
+
+    nav ul ul li a:hover {
+
+      color: #f90;
+
+    }
+
+
+
+    /* Hero banner */
+
+    .hero {
+
+      position: relative;
+
+      background: url('https://cdn.law.asia/wp-content/uploads/2024/11/A-comparative-guide-to-E-sports-and-gaming.jpg') no-repeat center/cover;
+
+      height: 400px;
+
+      color: #fff;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      padding: 40px;
+
+    }
+
+
+
+    .hero h1 {
+
+      font-size: 40px;
+
+      max-width: 500px;
+
+      margin-bottom: 15px;
+
+    }
+
+
+
+    .hero p {
+
+      font-size: 18px;
+
+      margin-bottom: 20px;
+
+    }
+
+
+
+    .hero button {
+
+      background: #f90;
+
+      color: #fff;
+
+      border: none;
+
+      padding: 12px 24px;
+
+      font-size: 16px;
+
+      border-radius: 6px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+
+    }
+
+
+
+    .hero button:hover {
+
+      background: #ffb84d;
+
+    }
+
+
+
+    /* game section */
+
+    .games {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+
+      padding: 30px 40px;
+
+    }
+
+
+
+    .game {
+
+      background: #fff;
+
+      border-radius: 10px;
+
+      overflow: hidden;
+
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+      transition: 0.3s;
+
+      /* Added for positioning the overlay */
+
+      position: relative;
+
+    }
+
+
+
+    .game a {
+
+      text-decoration: none; /* Remove underline from link */
+
+      color: inherit; /* Inherit color */
+
+      display: block; /* Make the link cover the whole card area */
+
+    }
+
+
+
+    .game img {
+
+      width: 100%;
+
+      height: auto;
+
+      display: block;
+
+      transition: 0.3s; /* Smooth transition for image scale */
+
+    }
+
+
+
+    .game:hover {
+
+      transform: translateY(-5px);
+
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+
+      cursor: pointer; /* Indicate it's clickable */
+
+    }
+
+    
+
+    /* New styles for the hover effect and title */
+
+    .game-info {
+
+      position: absolute;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: 0;
+
+      background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+
+      color: #fff;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      opacity: 0; /* Hidden by default */
+
+      transition: opacity 0.3s;
+
+      border-radius: 10px; /* Match container border */
+
+      padding: 15px;
+
+      text-align: center;
+
+    }
+
+
+
+    .game-info h3 {
+
+      font-size: 24px;
+
+      margin: 0;
+
+      text-shadow: 0 0 5px rgba(0,0,0,0.5);
+
+    }
+
+
+
+    .game:hover .game-info {
+
+      opacity: 1; /* Show on hover */
+
+    }
+
+
+
+    .game:hover img {
+
+      transform: scale(1.05); /* Slight zoom on image when hovered */
+
+    }
+
+  </style></head><body>
+
+
+
+    <header>
+
+    <div class="logo">
+
+      <img src="logo.png" alt="Logo">
+
+      <h2>E-Sports Arena</h2>
+
+    </div>
+
+      </header>
+
+
+
+
+
+
+
+    <section class="hero">
+
+    <h1>WHERE ESPORTS MEETS EDUCATION. THE NEXT LEVEL.</h1>
+
+    <p>Enter a world of fun</p>
+
+        <button>Explore Games</button>
+
+  </section>
+
+
+
+    <section class="games">
+
+    <div class="game">
+
+      <a href="https://mgx-qjerqlxgr9.mgx.world/" target="_blank">
+
+        <img src="game1.png" alt="World Explorer: Global Quest">
+
+        <div class="game-info">
+
+          <h3>World Explorer: Global Quest</h3>
+
+        </div>
+
+      </a>
+
+    </div>
+
+    <div class="game">
+
+      <a href="https://mgx-c7zk8crg2mh.mgx.world/" target="_blank">
+
+        <img src="game2.png" alt="Pixel Dash">
+
+        <div class="game-info">
+
+          <h3>Pixel Dash</h3>
+
+        </div>
+
+      </a>
+
+    </div>
+
+    <div class="game">
+
+      <a href="https://mgx-br4zgonkid5.mgx.world/" target="_blank">
+
+        <img src="game3.png" alt="Trivia Pop!">
+
+        <div class="game-info">
+
+          <h3>Trivia Pop!</h3>
+
+        </div>
+
+      </a>
+
+    </div>
+
+      <!-- Footer -->
+  <footer>
+    <div class="footer-bottom">
+      &copy; 2025 E-Sports Arena SSLSD. Developed by Year 12 IT Students.
+    </div>
+  </footer>
+
+  </section></body></html>
