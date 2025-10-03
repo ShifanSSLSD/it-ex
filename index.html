@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-   <link rel="icon" type="image/x-icon" href="logo.ico">
+  <link rel="icon" type="image/x-icon" href="logo.ico">
   <title>E-Sports Arena | Year 12 Students SSLSD</title>
   <style>
     /* Reset */
@@ -104,7 +104,8 @@
 
     .game img {
       width: 100%;
-      height: auto;
+      height: 200px;
+      object-fit: cover;
       display: block;
       transition: 0.3s;
     }
@@ -160,7 +161,7 @@
       font-size: 14px;
     }
 
-    /* Floating Robot Chat Bot */
+    /* Floating Chat Bot */
     .chat-bot {
       position: fixed;
       bottom: 30px;
@@ -193,6 +194,34 @@
     .chat-bot:hover .chat-bubble {
       background-color: #f90;
       color: #fff;
+    }
+
+    /* Floating Feedback Button (Sidebar Style) */
+    .feedback-btn {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      z-index: 999;
+      background-color: #f90;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .feedback-btn:hover {
+      background-color: #ffb84d;
+    }
+
+    .feedback-btn::before {
+      content: "📝";
+      margin-right: 8px;
     }
 
     @keyframes float {
@@ -284,17 +313,15 @@
   </footer>
 
   <!-- Floating Chat Bot -->
-  <div class="chat-bot" onclick="window.location.href='chatbot.html', '_blank'">
+  <div class="chat-bot" onclick="window.open('chatbot.html', '_blank')">
     <img src="chatbot.png" alt="Chat Bot">
     <div class="chat-bubble">👋 Hi? Chat with me!</div>
   </div>
 
+  <!-- Floating Feedback Sidebar -->
+  <a href="https://forms.gle/your-google-form-link" target="_blank" class="feedback-btn">
+    Give Feedback
+  </a>
+
 </body>
 </html>
-
-
-
-
-
-
-
